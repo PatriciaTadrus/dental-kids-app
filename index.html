@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive dental education app for kids using Show-Tell-Do methodology">
+    <meta name="keywords" content="dental, kids, education, show-tell-do, pediatric dentistry">
+    <title>🦷 Dental Kids - Making Dental Visits Fun!</title>
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" href="assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/sounds/welcome.mp3" as="audio">
+    <link rel="preload" href="css/styles.css" as="style">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-animation">
+            <div class="tooth-loader">🦷</div>
+            <p class="loading-text">Getting ready for your dental adventure!</p>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="app" class="app-container">
+        
+        <!-- Header Navigation -->
+        <header class="app-header" role="banner">
+            <div class="header-content">
+                <div class="logo-section">
+                    <span class="logo-icon">🦷</span>
+                    <h1 class="app-title">Dental Kids</h1>
+                    <p class="app-tagline">Making dental visits fun!</p>
+                </div>
+                
+                <nav class="main-navigation" role="navigation" aria-label="Main navigation">
+                    <button class="nav-btn active" data-section="home" aria-label="Home">
+                        <span class="nav-icon">🏠</span>
+                        <span class="nav-text">Home</span>
+                    </button>
+                    <button class="nav-btn" data-section="procedures" aria-label="Procedures">
+                        <span class="nav-icon">🔧</span>
+                        <span class="nav-text">Procedures</span>
+                    </button>
+                    <button class="nav-btn" data-section="progress" aria-label="My Progress">
+                        <span class="nav-icon">🏆</span>
+                        <span class="nav-text">My Progress</span>
+                    </button>
+                    <button class="nav-btn" data-section="tips" aria-label="Dental Tips">
+                        <span class="nav-icon">💡</span>
+                        <span class="nav-text">Tips</span>
+                    </button>
+                </nav>
+
+                <!-- Sound Toggle -->
+                <button id="sound-toggle" class="sound-toggle" aria-label="Toggle sound">
+                    <span class="sound-icon">🔊</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content" role="main">
+            
+            <!-- Home Section -->
+            <section id="home-section" class="content-section active" aria-labelledby="home-title">
+                <div class="hero-area">
+                    <div class="hero-content">
+                        <h2 id="home-title" class="hero-title">Welcome to Your Dental Adventure!</h2>
+                        <p class="hero-description">
+                            Hi there! I'm Dr. Toothy, and I'm here to show you that dental visits can be 
+                            fun and exciting. Let's explore together!
+                        </p>
+                        <div class="character-mascot">
+                            <div class="mascot-tooth">
+                                🦷
+                                <div class="mascot-face">
+                                    <span class="eyes">👀</span>
+                                    <span class="smile">😊</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="cta-button" onclick="showSection('procedures')">
+                            <span class="button-text">Start Learning!</span>
+                            <span class="button-icon">✨</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-icon">🎯</span>
+                        <h3 class="stat-title">Learn</h3>
+                        <p class="stat-description">Discover what happens during dental visits</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🎮</span>
+                        <h3 class="stat-title">Practice</h3>
+                        <p class="stat-description">Try procedures yourself in a safe way</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🏆</span>
+                        <h3 class="stat-title">Earn Badges</h3>
+                        <p class="stat-description">Collect rewards for being brave!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Procedures Section -->
+            <section id="procedures-section" class="content-section" aria-labelledby="procedures-title">
+                <div class="section-header">
+                    <h2 id="procedures-title" class="section-title">Dental Procedures</h2>
+                    <p class="section-description">Click on any procedure to learn about it step by step!</p>
+                </div>
+
+                <div class="procedures-grid">
+                    <!-- Tooth Cleaning -->
+                    <div class="procedure-card" data-procedure="cleaning">
+                        <div class="card-header">
+                            <span class="procedure-icon">🪥</span>
+                            <h3 class="procedure-title">Tooth Cleaning</h3>
+                        </div>
+                        <div class="card-content">
+                            <p class="procedure-description">Learn how we keep your teeth sparkling clean!</p>
+                            <div class="difficulty-indicator">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <div class="difficulty-stars">
+                                    <span class="star active">⭐</span>
+                                    <span class="star">⭐</span>
+                                    <span class="star">⭐</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="start-procedure-btn" aria-label="Start tooth cleaning procedure">
+                                Start Adventure
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- X-Ray -->
+                    <div class="procedure-card" data-procedure="xray">
+                        <div class="card-header">
+                            <span class="procedure-icon">📸</span>
+                            <h3 class="procedure-title">X-Ray Pictures</h3>
+                        </div>
+                        <div class="card-content">
+                            <p class="procedure-description">Discover your superhero vision powers!</p>
+                            <div class="difficulty-indicator">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <div class="difficulty-stars">
+                                    <span class="star active">⭐</span>
+                                    <span class="star">⭐</span>
+                                    <span class="star">⭐</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="start-procedure-btn" aria-label="Start x-ray procedure">
+                                Start Adventure
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cavity Filling -->
+                    <div class="procedure-card" data-procedure="filling">
+                        <div class="card-header">
+                            <span class="procedure-icon">🔧</span>
+                            <h3 class="procedure-title">Cavity Filling</h3>
+                        </div>
+                        <div class="card-content">
+                            <p class="procedure-description">Help fix teeth like a dental superhero!</p>
+                            <div class="difficulty-indicator">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <div class="difficulty-stars">
+                                    <span class="star active">⭐</span>
+                                    <span class="star active">⭐</span>
+                                    <span class="star">⭐</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="start-procedure-btn" aria-label="Start cavity filling procedure">
+                                Start Adventure
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Checkup -->
+                    <div class="procedure-card" data-procedure="checkup">
+                        <div class="card-header">
+                            <span class="procedure-icon">🔍</span>
+                            <h3 class="procedure-title">Dental Checkup</h3>
+                        </div>
+                        <div class="card-content">
+                            <p class="procedure-description">Explore your mouth like a treasure hunter!</p>
+                            <div class="difficulty-indicator">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <div class="difficulty-stars">
+                                    <span class="star active">⭐</span>
+                                    <span class="star">⭐</span>
+                                    <span class="star">⭐</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="start-procedure-btn" aria-label="Start dental checkup procedure">
+                                Start Adventure
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Section -->
+            <section id="progress-section" class="content-section" aria-labelledby="progress-title">
+                <div class="section-header">
+                    <h2 id="progress-title" class="section-title">My Progress</h2>
+                    <p class="section-description">Look at all the brave things you've accomplished!</p>
+                </div>
+
+                <div class="progress-dashboard">
+                    <!-- Overall Progress -->
+                    <div class="progress-overview">
+                        <div class="progress-circle">
+                            <svg class="progress-ring" width="120" height="120">
+                                <circle class="progress-ring-background" cx="60" cy="60" r="50"></circle>
+                                <circle id="progress-ring-fill" class="progress-ring-fill" cx="60" cy="60" r="50"></circle>
+                            </svg>
+                            <div class="progress-text">
+                                <span id="progress-percentage">0%</span>
+                                <span class="progress-label">Complete</span>
+                            </div>
+                        </div>
+                        <div class="progress-stats">
+                            <div class="stat">
+                                <span class="stat-number" id="procedures-completed">0</span>
+                                <span class="stat-label">Procedures Learned</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" id="badges-earned">0</span>
+                                <span class="stat-label">Badges Earned</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Badges Collection -->
+                    <div class="badges-section">
+                        <h3 class="badges-title">Your Brave Badges</h3>
+                        <div class="badges-grid" id="badges-container">
+                            <!-- Badges will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tips Section -->
+            <section id="tips-section" class="content-section" aria-labelledby="tips-title">
+                <div class="section-header">
+                    <h2 id="tips-title" class="section-title">Dental Health Tips</h2>
+                    <p class="section-description">Learn how to keep your teeth healthy and strong!</p>
+                </div>
+
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">🪥</div>
+                        <h3 class="tip-title">Brush Twice Daily</h3>
+                        <p class="tip-description">Brush your teeth in the morning and before bed for 2 minutes each time!</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">🧵</div>
+                        <h3 class="tip-title">Floss Daily</h3>
+                        <p class="tip-description">Clean between your teeth with floss to remove hidden food particles!</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">🥛</div>
+                        <h3 class="tip-title">Drink Water</h3>
+                        <p class="tip-description">Water helps wash away bacteria and keeps your mouth healthy!</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">🍎</div>
+                        <h3 class="tip-title">Eat Healthy Foods</h3>
+                        <p class="tip-description">Fruits and vegetables make your teeth strong and your smile bright!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Procedure Modal -->
+        <div id="procedure-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title" class="modal-title">Procedure Name</h3>
+                    <button class="close-modal" aria-label="Close procedure">&times;</button>
+                </div>
+                <div class="modal-body" id="procedure-content">
+                    <!-- Procedure content will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Action Button for Help -->
+        <button id="help-button" class="help-button" aria-label="Get help">
+            <span class="help-icon">❓</span>
+        </button>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/app.js"></script>
+    <script src="js/procedures.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>
