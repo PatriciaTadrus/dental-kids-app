@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦷 Doctor Login - Dental Kids</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); max-width: 400px; width: 100%; margin: 20px;">
+            
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <span style="font-size: 3rem;">🦷</span>
+                <h1 style="color: #333; margin: 1rem 0;">Doctor Login</h1>
+                <p style="color: #666;">Access your patient dashboard</p>
+            </div>
+            
+            <form onsubmit="handleLogin(event)">
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Email:</label>
+                    <input type="email" id="email" required 
+                           style="width: 100%; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Password:</label>
+                    <input type="password" id="password" required 
+                           style="width: 100%; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                </div>
+                
+                <button type="submit" 
+                        style="width: 100%; padding: 1rem; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer;">
+                    Sign In
+                </button>
+            </form>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="color: #666; margin-bottom: 1rem;">Demo: email@test.com / password123</p>
+                <a href="index.html" style="color: #4facfe; text-decoration: none;">← Back to Kids App</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Simple demo login
+            if (email && password) {
+                alert('Login successful! (This is a demo)');
+                // Here you could redirect to a dashboard later
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html>
